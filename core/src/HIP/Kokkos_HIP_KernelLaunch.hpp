@@ -55,7 +55,7 @@
 
 // Must use global variable on the device with HIP-Clang
 #ifdef __HIP__
-__device__ __constant__ unsigned long kokkos_impl_hip_constant_memory_buffer
+__device__ __constant__ __attribute__((weak)) unsigned long kokkos_impl_hip_constant_memory_buffer
     [Kokkos::Experimental::Impl::HIPTraits::ConstantMemoryUsage /
      sizeof(unsigned long)];
 #endif

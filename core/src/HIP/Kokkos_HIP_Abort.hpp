@@ -53,7 +53,7 @@
 namespace Kokkos {
 namespace Impl {
 
-[[noreturn]] __device__ __attribute__((noinline)) void hip_abort(
+[[noreturn]] __device__ __attribute__((noinline)) __attribute__((weak)) void hip_abort(
     char const *msg) {
 #ifdef NDEBUG
   (void)msg;
