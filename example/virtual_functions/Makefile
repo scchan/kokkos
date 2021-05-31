@@ -1,6 +1,11 @@
-KOKKOS_DEVICES=Cuda
-KOKKOS_CUDA_OPTIONS=enable_lambda,rdc
-KOKKOS_ARCH = "SNB,Kepler35"
+#KOKKOS_DEVICES=Cuda
+#KOKKOS_CUDA_OPTIONS=enable_lambda,rdc
+#KOKKOS_ARCH = "SNB,Kepler35"
+
+KOKKOS_DEVICES=HIP
+KOKKOS_HIP_OPTIONS=enable_lambda,rdc
+KOKKOS_ARCH = "Vega900"
+
 
 #KOKKOS_DEVICES=OpenMP
 #KOKKOS_CUDA_OPTIONS=enable_lambda
@@ -26,7 +31,8 @@ CXX = ${KOKKOS_PATH}/bin/nvcc_wrapper
 EXE = virtual.cuda
 override LINKFLAGS += --remove-duplicate-link-files
 else
-CXX = g++
+#CXX = g++
+CXX = /opt/rocm/hip/bin/hipcc
 EXE = virtual.host
 endif
 
