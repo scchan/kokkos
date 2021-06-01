@@ -1,0 +1,5 @@
+
+#!/bin/bash
+
+set -x
+cmake -DKokkos_ENABLE_HIP=ON   -DKokkos_ENABLE_HIP_RELOCATABLE_DEVICE_CODE=ON  -DKokkos_ENABLE_EXAMPLES=ON -DKokkos_ARCH_VEGA900=ON -DCMAKE_CXX_COMPILER=/opt/rocm/hip/bin/hipcc -DKokkos_CXX_STANDARD=17  ..
